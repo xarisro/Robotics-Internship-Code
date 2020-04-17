@@ -1,0 +1,13 @@
+# Robotics Internship Code
+ Some of the programs I wrote during a robotics internship I did in VUB, for the franka emika panda robotic manipulator.
+
+ The files included contain mostly torque control algorithms for various tasks explained below, while the file names starting with `Vicon`, contain code that used data from the Vicon camera system through ROS. The programs included have the following functionalities:
+    
++ The file `ERG.cpp` implements a constrained-control method called *Explicit Reference Governor* which was the prime task of the internship. In this method, the main goal is to control the robot to reach a given configuration in task space, while taking into consideration obstacles, physical joint limits and torque limits.
++ The file `Write_on_paper.cpp` contains a simple trajectory tracking algorithm, so that the robot can track trajectories of letters. Having recorded the trajectories produced by a person hand-writing each of the alphabet letters, the program asks for the user to write a phrase and then the robot writes the phrase in a paper by following each letter's recorded trajectory.
++ The file `Xbox.cpp` essentially implements a teleoperation task with an Xbox joystick. The joystick's buttons and stick movements are mapped to movements in the robot and its gripper, so that its usage is convenient.
++   The file `Vicon_pick_and_place.cpp` makes use of the infrared Vicon camera system as an addition to the robot control. In this program the robot tries to pick an object (which has infrared markers on it) and transfers it back and forth from person to person (the robot can locate the position of the people as they will be wearing some markers).
++ The file `Vicon_Teleoperation.cpp` contains a mimicking teleoperation algorithm. Infrared markers are placed on the user's arm, and several arm motions are mapped to motions in the robot and its gripper, so that the robot seems to mimic the user's arm movement in real time.
++ The file `Vicon_obstacle_avoidance.cpp` implements a task where the robot tries to reach a possibly moving desired position in task-space, while trying to avoid dynamic obstacles, through the use of Vicon markers.
++ The `Vicon_inverted_pendulum_teleop.cpp` implements a 2D inverted pendulum control. A metallic stick is essentially considered as the pendulum, while markers are placed on it so that the algorithm can calculate the position and velocity of the stick, for the balance feedback control. Additionally, the desired position of the balanced stick is changed through teleoperation, similar to the ``Vicon_Teleoperation.cpp`` file.
+
